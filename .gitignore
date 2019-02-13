@@ -1,4 +1,4 @@
 *.class
-src/hamcrest-core-1.3.jar
-src/junit-4.12.jar
+src/other/hamcrest-core-1.3.jar
+src/other/junit-4.12.jar
 src/exe
