@@ -1,3 +1,4 @@
+package model;
 public class Monster{
   private int hp;
   private String ID;
@@ -32,6 +33,10 @@ public class Monster{
     return attackPower;:
   }
 
+  public void setState(MonsterState state){
+    this.state = state;
+  }
+
   public void attack(Player enemy){
     int hp = enemy.getHp();
     hp -= attackPower;
@@ -45,6 +50,10 @@ public class Monster{
   }
 
   public void changeState(){
-    pass
+    if(state == MonsterState.ATTACK){
+      state = MonsterState.DEFENSE;
+    else{
+      state = MonsterState.ATTACK;
+    }
   }
 }

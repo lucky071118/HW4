@@ -1,3 +1,4 @@
+package model;
 public class Board{
   private Monster[] monsterBoard;
   private char name;
@@ -9,11 +10,12 @@ public class Board{
     this.name = name;
   } 
   
-  public ErrorMessage setMonster(String location, Monster monster){
+  public ErrorMessage setMonster(String location, Monster monster, String state){
     ErrorMessage errorMessage = new ErrorMessage();
     int number = splitPosition(location);
     if(number != -1 && monsterBoard[number-1] == null){
       monsterBoard[number-1] = monster;
+      monster.setState(state);
     }
     else{
       errorMessage.setMessage("The position is error");

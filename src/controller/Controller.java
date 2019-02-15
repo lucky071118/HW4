@@ -1,4 +1,7 @@
+package controller;
 import java.util.Scanner;
+import view.View;
+import model.Model;
 
 public class Controller{
   private Model model;

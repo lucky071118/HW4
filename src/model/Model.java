@@ -1,3 +1,4 @@
+package model;
 public class Model{
   private Player[] players;
   private Board[] boards;
@@ -79,7 +80,7 @@ public class Model{
       errorMessage.setMessage(players[turn].getName() + " doesn't have " + monsterID);
     }
     else{
-      errorMessage = boards[turn].setMonster(position, monster);
+      errorMessage = boards[turn].setMonster(position, monster, state);
     }
     return errorMessage;
   }
@@ -111,12 +112,19 @@ public class Model{
   }
 
 
-  public void changeMonsterState(String monsterPosition){
-    
+  public ErrorMessage changeMonsterState(String monsterPosition){
+    ErrorMessage errorMessage = boards[turn].changeMonsterState(monsterPosition);
+    return errorMessage;
   }
 
   public void finishTurn(){
-    
+    if(turn == 0){
+      turn = 1;
+    }
+    else{
+      turn = 0;
+      round += 1;
+    }
   }
 
   public ErrorMessage enterPlayerName(String player1Name, String player2Name){

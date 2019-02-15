@@ -1,3 +1,4 @@
+package model;
 public class MonsterCreator{
   public Monster create(String monsterID){
     Monster monster;  
